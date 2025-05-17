@@ -1,12 +1,3 @@
 {
-  "users": [
-    {
-      "id": "5217",
-      "name": "Seetharama",
-      "email": "seetha@gmail.com",
-      "mobile": "1234567890",
-      "gender": "male",
-      "address": "about"
-    }
-  ]
+  "users": []
 }
