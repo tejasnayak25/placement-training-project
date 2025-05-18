@@ -56,7 +56,7 @@ function printUsers(data) {
             <td> ${item.mobile} </td>
             <td> ${item.gender} </td>
             <td> ${item.address} </td>
-            <td>
+            <td class="btn-list">
                 <a href="update.html?userId=${item.id}" class="btn info">Edit</a>
                 <button onclick="deleteById('${item.id}')" class="btn danger">Delete</button>
             </td>

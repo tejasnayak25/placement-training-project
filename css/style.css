@@ -17,11 +17,10 @@ body {
     overflow-x: hidden;
 }
 
-/* menu style */
 .menu {
-    height: 60px;
+    height: 80px;
     width: 100%;
-    background-color: slateblue;
+    background-color:purple;
 }
 
 .menu .menu-container {
@@ -46,49 +45,68 @@ body {
 }
 
 .menu-items a {
-    padding: 8px 10px;
-    background-color: #222;
+    padding: 8px 16px;
     border-radius: 6px;
     transition: all 0.4s;
 }
 
 .menu-items a:hover {
-    background-color: #555;
+    color: aliceblue;
+    text-decoration: underline;
 }
 
 /* body */
 .container {
     width: 80%;
+    padding: 20px 0;
     margin: auto;
 }
 
 .container .title {
     text-align: center;
-    color: slateblue;
+    color: purple;
 }
 
 .container .table-responsive {
     overflow: auto;
+    display: flex;
+    justify-content: center;
 }
 
 table,tr,td,th {
-    border: 1px solid #222;
-    border-collapse: collapse;
     text-align: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 td,th {
-    padding: 10px;
+    border: 1px solid #222;
+    padding: 15px 20px;
+    min-width: 120px;
 }
 
 .btn {
-    padding: 6px 8px;
+    padding: 6px 10px;
     text-decoration: none;
     border: none;
     color:#fff;
     cursor: pointer;
-    margin: 3px;
     border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.btn-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 }
 
 .success {
@@ -106,10 +124,15 @@ td,th {
 /* form style */
 
 form {
-    border: 2px solid #ccc;
+    border: 2px solid purple;
+    border-radius: 20px;
     width: 60%;
     margin: auto;
     padding: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 form .form-item {
@@ -124,7 +147,58 @@ form .form-item {
 form .form-input {
     width: 100%;
     padding: 8px 10px;
-    border-radius: 6px;
+    border-radius: 10px;
     outline: none;
-    border: 1px solid #222;
+    border: 2px solid purple;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+form .form-item label {
+    font-size: 13px;
+    margin: 5px 0;
+    color: purple;
+}
+
+form .btn {
+    padding: 15px 30px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    background-color: purple;
+}
+
+form .form-item:has(.btn) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .menu {
+        padding: 20px;
+        height: fit-content;
+    }
+
+    .menu .menu-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .container .title {
+        font-size: 15px;
+    }
+
+    .container .table-responsive {
+        justify-content: start;
+    }
 }
