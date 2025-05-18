@@ -9,22 +9,18 @@ let addressEl = document.getElementById("address")
 // server url
 const URL = "http://localhost:8080"
 
-
-// read the single user data with ref to user id
 let urlParams = new URLSearchParams(window.location.search);
-let id = urlParams.get("userId")
-console.log('userid = ', id)
+let id = urlParams.get("empId")
 
 // read the data from api
-async function readUserById() {
-    await fetch(`${URL}/users/${id}`,{
+async function readEmpById() {
+    await fetch(`${URL}/employees/${id}`,{
         headers: {
             "Content-Type": "application/json"
         },
         method: "GET"
     }).then(res => res.json())
     .then(res => {
-        console.log('single user =', res)
         nameEl.value = res.name;
         emailEl.value = res.email;
         mobileEl.value = res.mobile;
@@ -33,14 +29,12 @@ async function readUserById() {
     }).catch(err => console.error(err.message))
 }
 
-readUserById()
+readEmpById();
 
-// submit function
 async function submitHandler(event) {
-    event.preventDefault(); // to avoid page reload after submit event
+    event.preventDefault();
 
-    let newUser = {
-        // key: value
+    let newEmp = {
         name: nameEl.value,
         email: emailEl.value,
         mobile: mobileEl.value,
@@ -48,18 +42,15 @@ async function submitHandler(event) {
         address: addressEl.value
     }
 
-    console.log('new user =', newUser)
-
-    // promise request - put
-    await fetch(`${URL}/users/${id}`, {
+    await fetch(`${URL}/employees/${id}`, {
         headers: {
             "Content-Type": "application/json"
         },
         method: "PUT",
-        body: JSON.stringify(newUser)
+        body: JSON.stringify(newEmp)
     }).then(res => res.json())
     .then(res => {
-        alert('User data updated successfully')
+        alert('Employee data updated successfully')
         window.location.href = "/index.html";
     }).catch(err => {
         console.error(err.message)

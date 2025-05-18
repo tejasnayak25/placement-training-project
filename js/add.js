@@ -13,7 +13,7 @@ const URL = "http://localhost:8080"
 async function submitHandler(event) {
     event.preventDefault(); // to avoid page reload after submit event
 
-    let newUser = {
+    let newEmp = {
         // key: value
         name: nameEl.value,
         email: emailEl.value,
@@ -22,18 +22,16 @@ async function submitHandler(event) {
         address: addressEl.value
     }
 
-    console.log('new user =', newUser)
-
     // promise request - post
-    await fetch(`${URL}/users`, {
+    await fetch(`${URL}/employees`, {
         headers: {
             "Content-Type": "application/json"
         },
         method: "POST",
-        body: JSON.stringify(newUser)
+        body: JSON.stringify(newEmp)
     }).then(res => res.json())
     .then(res => {
-        alert('New user data added successfully')
+        alert('New employee data added successfully')
         window.location.href = "/index.html";
     }).catch(err => {
         console.error(err.message)

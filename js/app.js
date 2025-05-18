@@ -1,20 +1,16 @@
-
-// default url address
 const URL  = "http://localhost:8080"
 
-
-// delete user
 async function deleteById(id) {
-    if(confirm(`Are you sure to delete user ${id}?`)) {
-        await fetch(`${URL}/users/${id}`,{
+    if(confirm(`Are you sure to delete employee ${id}?`)) {
+        await fetch(`${URL}/employees/${id}`,{
             headers: {
                 "Content-Type": "application/json"
             },
             method: "DELETE"
         }).then(res => res.json())
         .then(res => {
-            alert('User data deleted successfully');
-            window.location.reload();// reload the current page
+            alert('Employee data deleted successfully');
+            window.location.reload();
         }).catch(err => {
             console.error(err.message)
         })
@@ -23,10 +19,8 @@ async function deleteById(id) {
     }
 }
 
-
-// method to read the data
-async function readUsers() {
-    await fetch(`${URL}/users`, {
+async function readEmps() {
+    await fetch(`${URL}/employees`, {
         headers: {
             "Content-Type": "application/json"
         },
@@ -34,20 +28,17 @@ async function readUsers() {
     })
     .then(res => res.json())
     .then(res => {
-        console.log("users = ", res)
-        printUsers(res)
+        printEmps(res)
     }).catch(err => {
         console.error(err.message)
     })
 }
 
-readUsers()
+readEmps();
 
-// target the table body id
-let tableEl = document.getElementById("userList")
+let tableEl = document.getElementById("employeeList")
 
-function printUsers(data) {
-    console.log('print data = ', data)
+function printEmps(data) {
     data.forEach(function(item,index){
         tableEl.innerHTML += `<tr>
             <td> ${item.id} </td>
@@ -57,7 +48,7 @@ function printUsers(data) {
             <td> ${item.gender} </td>
             <td> ${item.address} </td>
             <td class="btn-list">
-                <a href="update.html?userId=${item.id}" class="btn info">Edit</a>
+                <a href="update.html?empId=${item.id}" class="btn info">Edit</a>
                 <button onclick="deleteById('${item.id}')" class="btn danger">Delete</button>
             </td>
         </tr>`

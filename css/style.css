@@ -179,6 +179,15 @@ form .form-item:has(.btn) {
     align-items: center;
 }
 
+@media screen and (max-width: 900px) {
+    form {
+        width: 100%;
+    }
+    .container .table-responsive {
+        justify-content: start;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .menu {
         padding: 20px;
