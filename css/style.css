@@ -70,7 +70,7 @@ body {
 .container .table-responsive {
     overflow: auto;
     display: flex;
-    justify-content: center;
+    justify-content: start;
 }
 
 table,tr,td,th {

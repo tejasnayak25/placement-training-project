@@ -46,6 +46,7 @@ function printEmps(data) {
             <td> ${item.email} </td>
             <td> ${item.mobile} </td>
             <td> ${item.gender} </td>
+            <td>${item.job}</td>
             <td> ${item.address} </td>
             <td class="btn-list">
                 <a href="update.html?empId=${item.id}" class="btn info">Edit</a>

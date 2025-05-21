@@ -4,6 +4,7 @@ let nameEl = document.getElementById("name")
 let emailEl = document.getElementById("email")
 let mobileEl = document.getElementById("mobile")
 let genderEl = document.getElementById("gender")
+let jobEl = document.getElementById("job")
 let addressEl = document.getElementById("address")
 
 // server url
@@ -25,6 +26,7 @@ async function readEmpById() {
         emailEl.value = res.email;
         mobileEl.value = res.mobile;
         genderEl.value = res.gender;
+        jobEl.value = res.job;
         addressEl.value = res.address;
     }).catch(err => console.error(err.message))
 }
@@ -39,6 +41,7 @@ async function submitHandler(event) {
         email: emailEl.value,
         mobile: mobileEl.value,
         gender: genderEl.value,
+        job: jobEl.value,
         address: addressEl.value
     }
 

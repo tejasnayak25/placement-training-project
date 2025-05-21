@@ -4,6 +4,7 @@ let nameEl = document.getElementById("name")
 let emailEl = document.getElementById("email")
 let mobileEl = document.getElementById("mobile")
 let genderEl = document.getElementById("gender")
+let jobEl = document.getElementById("job")
 let addressEl = document.getElementById("address")
 
 // server url
@@ -19,6 +20,7 @@ async function submitHandler(event) {
         email: emailEl.value,
         mobile: mobileEl.value,
         gender: genderEl.value,
+        job: jobEl.value,
         address: addressEl.value
     }
 
